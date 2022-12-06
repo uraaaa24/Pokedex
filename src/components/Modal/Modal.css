@@ -1,0 +1,109 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  flex-flow: column;
+}
+
+.modalClose {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 15px;
+  top: 15px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: #0028db;
+  cursor: pointer;
+}
+
+.modalClose:hover {
+  transform: scale(1.05,1.05);
+}
+
+.modalClose::before, .modalClose::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 22px;
+  background: white;
+}
+
+.modalClose::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.modalClose::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+.modalContent {
+  background: linear-gradient(#0028db, #0097db);
+  color: white;
+  font-weight: 600px;
+  padding: 10px;
+  border-radius: 25px;
+  display: flex;
+  position: relative;
+  width: 45%;
+  padding: 50px 100px;
+  border: 4px solid black;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+.modalImg {
+  flex-grow: 1;
+  width: 45%;
+  display: flex;
+  align-items: center;
+}
+
+.modalImg img {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.modalInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  width: 55%;
+  height: 100%;
+  text-align: left;
+}
+
+.pokemonType span{
+  display: inline-block;
+  background-color: aqua;
+  margin-right: 10px;
+  padding-right: 8px;
+  padding-left: 8px;
+  border-radius: 25px;
+}
+
+.pokemonIndex {
+  text-transform: full-width;
+}
+
+
+.pokemonExplanation {
+  margin-top: 40px;
+  font-size: 22px;
+  align-items: flex-end;
+  white-space: pre-wrap;
+}
