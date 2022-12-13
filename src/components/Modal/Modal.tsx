@@ -1,7 +1,7 @@
 import React from "react";
 import "./Modal.css";
 
-const Modal = (props) => {
+const Modal = (props: any) => {
   //ポケモンのタイプを日本語化
   const japaneseType = {
     normal: ["ノーマル", "#aea886"],
@@ -32,54 +32,69 @@ const Modal = (props) => {
   let flavorTexts = [];
   if (props.showFlag) {
     flavorTexts = props.japanesePokemonData.flavor_text_entries.filter(
-      (data) => {
+      (data: any) => {
         return data.language.name === "ja";
       }
     );
   }
 
-  return (
-    <>
-      {props.showFlag ? (
-        <div className="overlay">
-          <div className="modalContent">
-            <div className="modalInfo">
-              <button className="modalClose" onClick={closeModal} />
-              <p className="pokemonIndex">No.{props.pokemon.id}</p>
-              <h3>{props.japanesePokemonData.names[0].name}</h3>
-              <p>{props.japanesePokemonData.genera[0].genus}</p>
-              <p className="pokemonType">
-                {props.pokemon.types.map((type, i) => {
-                  return (
-                    <span key={i} style={{backgroundColor: japaneseType[type.type.name][1]}}>
-                      {japaneseType[type.type.name][0]}{" "}
-                    </span>
-                  );
-                })}
-              </p>
-              <p>
-                高さ：{props.pokemon.height / 10}m　重さ：
-                {(props.pokemon.weight / 10).toFixed(1)}kg
-              </p>
-              <div className="pokemonExplanation">
-                <p>{flavorTexts[0].flavor_text}</p>
-              </div>
-            </div>
-            <div className="modalImg">
-              <img
-                src={
-                  props.pokemon.sprites.other["official-artwork"].front_default
-                }
-                alt=""
-              />
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+  return <>
+    {props.showFlag ? (
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+      <div className="overlay">
+        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+        <div className="modalContent">
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          <div className="modalInfo">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <button className="modalClose" onClick={closeModal} />
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <p className="pokemonIndex">No.{props.pokemon.id}</p>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <h3>{props.japanesePokemonData.names[0].name}</h3>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <p>{props.japanesePokemonData.genera[0].genus}</p>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <p className="pokemonType">
+              {props.pokemon.types.map((type: any, i: any) => {
+                return (
+                  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+                  <span key={i} style={{backgroundColor: japaneseType[type.type.name][1]}}>
+                    // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
+                    {japaneseType[type.type.name][0]}{" "}
+                  </span>
+                );
+              })}
+            </p>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <p>
+              高さ：{props.pokemon.height / 10}m　重さ：
+              {(props.pokemon.weight / 10).toFixed(1)}kg
+            </p>
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <div className="pokemonExplanation">
+              // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+              <p>{flavorTexts[0].flavor_text}</p>
             </div>
           </div>
+          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+          <div className="modalImg">
+            // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+            <img
+              src={
+                props.pokemon.sprites.other["official-artwork"].front_default
+              }
+              alt=""
+            />
+          </div>
         </div>
-      ) : (
-        <></>
-      )}
-    </>
-  );
+      </div>
+    ) : (
+      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+      <></>
+    )}
+  </>;
 };
 
 export default Modal;
